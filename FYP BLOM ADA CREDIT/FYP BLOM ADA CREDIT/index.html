@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Timetable - DIT1-S2</title>
+  <style>
+    :root {
+      --navy: #0a2240;
+      --navy-2: #123b69;
+      --bg: #edf2f7;
+      --panel: #f9fafb;
+      --line: #d9e3ee;
+      --text: #1f2a37;
+      --muted: #5f6f89;
+      --blue: #dfeeff;
+      --green: #dff6e8;
+      --peach: #ffe7d7;
+      --purple: #e9e1ff;
+      --yellow: #fff1c6;
+      --pink: #ffdfe7;
+      --shadow: 0 10px 22px rgba(10, 34, 64, 0.11);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .page {
+      width: min(1260px, calc(100% - 28px));
+      margin: 24px auto;
+    }
+
+    .topbar {
+      background: linear-gradient(90deg, var(--navy), var(--navy-2));
+      color: #fff;
+      border-radius: 12px 12px 0 0;
+      padding: 18px 24px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .title {
+      font-size: clamp(1.6rem, 2vw, 2.4rem);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      margin: 0;
+    }
+
+    .header-meta {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(180px, 1fr));
+      gap: 10px;
+      margin-top: 14px;
+      font-size: 0.92rem;
+    }
+
+    .meta-box {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 10px;
+      padding: 10px 12px;
+      line-height: 1.4;
+    }
+
+    .meta-label {
+      display: block;
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      opacity: 0.8;
+      margin-bottom: 4px;
+    }
+
+    .table-wrap {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-top: none;
+      border-radius: 0 0 12px 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+    }
+
+    th, td {
+      border: 1px solid var(--line);
+      padding: 0;
+      text-align: center;
+      vertical-align: top;
+      background: #fff;
+    }
+
+    thead th {
+      background: #f3f6fa;
+      color: var(--text);
+      font-size: 0.98rem;
+      font-weight: 700;
+      padding: 12px 8px;
+    }
+
+    .time-col {
+      width: 120px;
+      background: #f1f4f8;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .slot {
+      height: 86px;
+      padding: 8px;
+      position: relative;
+    }
+
+    .subject {
+      height: 100%;
+      border-radius: 8px;
+      border: 1px solid rgba(0,0,0,0.03);
+      padding: 8px 9px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: left;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.4);
+    }
+
+    .subject-code {
+      font-size: 0.81rem;
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 4px;
+      color: #1b2c43;
+    }
+
+    .subject-meta {
+      font-size: 0.7rem;
+      line-height: 1.38;
+      color: #2d3d52;
+    }
+
+    .blue { background: var(--blue); }
+    .green { background: var(--green); }
+    .peach { background: var(--peach); }
+    .purple { background: var(--purple); }
+    .yellow { background: var(--yellow); }
+    .pink { background: var(--pink); }
+
+    @media (max-width: 860px) {
+      .header-meta {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .table-wrap {
+        overflow-x: auto;
+      }
+
+      table {
+        min-width: 920px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="topbar">
+      <h1 class="title">POLITEKNIK KUCHING SARAWAK</h1>
+      <div class="header-meta">
+        <div class="meta-box"><span class="meta-label">Program</span>DIT1-S2</div>
+        <div class="meta-box"><span class="meta-label">Session</span>SESI 1 2026/2027</div>
+        <div class="meta-box"><span class="meta-label">Academic Advisor</span>FARRAH WAHEDA BINTI ABDULLAH</div>
+        <div class="meta-box"><span class="meta-label">Class</span>DIT1-S2</div>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table aria-label="DIT1-S2 timetable">
+        <thead>
+          <tr>
+            <th class="time-col">Time</th>
+            <th>ISNIN</th>
+            <th>SELASA</th>
+            <th>RABU</th>
+            <th>KHAMIS</th>
+            <th>JUMAAT</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="time-col">8:00 - 9:00</td>
+            <td class="slot"></td>
+            <td class="slot"><div class="subject purple"><div class="subject-code">DFC10353</div><div class="subject-meta">Lecturer: FCMC<br>Room: MML</div></div></td>
+            <td class="slot"><div class="subject blue"><div class="subject-code">DFC10273</div><div class="subject-meta">Lecturer: FFWA<br>Room: HYP</div></div></td>
+            <td class="slot"><div class="subject green"><div class="subject-code">DBM10143</div><div class="subject-meta">Lecturer: BSNH / BNLM<br>Room: BK2 (B)</div></div></td>
+            <td class="slot"><div class="subject yellow"><div class="subject-code">DFC10263</div><div class="subject-meta">Lecturer: FSMY<br>Room: HYP</div></div></td>
+          </tr>
+
+          <tr>
+            <td class="time-col">9:00 - 10:00</td>
+            <td class="slot"></td>
+            <td class="slot"><div class="subject purple"><div class="subject-code">DFC10353</div><div class="subject-meta">Lecturer: FCMC<br>Room: MML</div></div></td>
+            <td class="slot"><div class="subject blue"><div class="subject-code">DFC10273</div><div class="subject-meta">Lecturer: FFWA<br>Room: HYP</div></div></td>
+            <td class="slot"><div class="subject green"><div class="subject-code">DBM10143</div><div class="subject-meta">Lecturer: BSNH / BNLM<br>Room: BK2 (B)</div></div></td>
+            <td class="slot"><div class="subject yellow"><div class="subject-code">DFC10263</div><div class="subject-meta">Lecturer: FSMY<br>Room: HYP</div></div></td>
+          </tr>
+
+          <tr>
+            <td class="time-col">10:00 - 11:00</td>
+            <td class="slot"></td>
+            <td class="slot"><div class="subject peach"><div class="subject-code">MPU22153</div><div class="subject-meta">Lecturer: ASZO<br>Room: BPJPA2* (A)</div></div></td>
+            <td class="slot"></td>
+            <td class="slot"><div class="subject peach"><div class="subject-code">MPU22153</div><div class="subject-meta">Lecturer: ASZO<br>Room: BPJPA2* (A)</div></div></td>
+            <td class="slot"><div class="subject blue"><div class="subject-code">DFC10273</div><div class="subject-meta">Lecturer: FFWA<br>Room: PGL2</div></div></td>
+          </tr>
+
+          <tr>
+            <td class="time-col">11:00 - 12:00</td>
+            <td class="slot"></td>
+            <td class="slot"><div class="subject peach"><div class="subject-code">MPU22153</div><div class="subject-meta">Lecturer: ASZO<br>Room: BPJPA2* (A)</div></div></td>
+            <td class="slot"></td>
+            <td class="slot"><div class="subject peach"><div class="subject-code">MPU22153</div><div class="subject-meta">Lecturer: ASZO<br>Room: BPJPA2* (A)</div></div></td>
+            <td class="slot"><div class="subject blue"><div class="subject-code">DFC10273</div><div class="subject-meta">Lecturer: FFWA<br>Room: PGL2</div></div></td>
+          </tr>
+
+          <tr>
+            <td class="time-col">12:00 - 1:00</td>
+            <td class="slot"><div class="subject pink"><div class="subject-code">DFC10353</div><div class="subject-meta">Lecturer: FCMC<br>Room: PGL1</div></div></td>
+            <td class="slot"></td>
+            <td class="slot"></td>
+            <td class="slot"></td>
+            <td class="slot"></td>
+          </tr>
+
+          <tr>
+            <td class="time-col">1:00 - 2:00</td>
+            <td class="slot"><div class="subject pink"><div class="subject-code">DFC10353</div><div class="subject-meta">Lecturer: FCMC<br>Room: PGL1</div></div></td>
+            <td class="slot"><div class="subject green"><div class="subject-code">DBM10143</div><div class="subject-meta">Lecturer: BSNH<br>Room: BK12 (B)</div></div></td>
+            <td class="slot"><div class="subject yellow"><div class="subject-code">DFC10263</div><div class="subject-meta">Lecturer: FSMY<br>Room: PGL1</div></div></td>
+            <td class="slot"></td>
+            <td class="slot"></td>
+          </tr>
+
+          <tr>
+            <td class="time-col">2:00 - 3:00</td>
+            <td class="slot"><div class="subject pink"><div class="subject-code">DFC10353</div><div class="subject-meta">Lecturer: FCMC<br>Room: PGL1</div></div></td>
+            <td class="slot"><div class="subject green"><div class="subject-code">DBM10143</div><div class="subject-meta">Lecturer: BSNH<br>Room: BK12 (B)</div></div></td>
+            <td class="slot"><div class="subject yellow"><div class="subject-code">DFC10263</div><div class="subject-meta">Lecturer: FSMY<br>Room: PGL1</div></div></td>
+            <td class="slot"></td>
+            <td class="slot"></td>
+          </tr>
+
+          <tr>
+            <td class="time-col">3:00 - 4:00</td>
+            <td class="slot"></td>
+            <td class="slot"></td>
+            <td class="slot"><div class="subject purple"><div class="subject-code">MPU24XX1</div><div class="subject-meta">Program: DIT1-S2</div></div></td>
+            <td class="slot"></td>
+            <td class="slot"></td>
+          </tr>
+
+          <tr>
+            <td class="time-col">4:00 - 5:00</td>
+            <td class="slot"></td>
+            <td class="slot"></td>
+            <td class="slot"><div class="subject purple"><div class="subject-code">MPU24XX1</div><div class="subject-meta">Program: DIT1-S2</div></div></td>
+            <td class="slot"><div class="subject yellow"><div class="subject-code">PA</div><div class="subject-meta">Lecturer: FFWA</div></div></td>
+            <td class="slot"></td>
+          </tr>
+
+          <tr>
+            <td class="time-col">5:00 - 6:00</td>
+            <td class="slot"></td>
+            <td class="slot"></td>
+            <td class="slot"></td>
+            <td class="slot"></td>
+            <td class="slot"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>
